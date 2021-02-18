@@ -5,16 +5,20 @@ import java.util.List;
 class GildedRose {
     List<Item> items;
 
+    private static final String AGED_BRIE_ITEM = "Aged Brie";
+    private static final String BACKSTAGE_ITEM = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS_ITEM = "Sulfuras, Hand of Ragnaros";
+
     public GildedRose(List<Item> items) {
         this.items = items;
     }
 
     public void updateQuality() {
         for (Item item : items) {
-            if (!item.name.equals("Aged Brie")
-                    && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (!item.name.equals(AGED_BRIE_ITEM)
+                    && !item.name.equals(BACKSTAGE_ITEM)) {
                 if (item.quality > 0) {
-                    if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                    if (!item.name.equals(SULFURAS_ITEM)) {
                         decreaseQuality(item);
                     }
                 }
@@ -22,7 +26,7 @@ class GildedRose {
                 if (item.quality < 50) {
                     increaseQuality(item);
 
-                    if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (item.name.equals(BACKSTAGE_ITEM)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
                                 increaseQuality(item);
@@ -38,15 +42,15 @@ class GildedRose {
                 }
             }
 
-            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (!item.name.equals(SULFURAS_ITEM)) {
                 item.sellIn = item.sellIn - 1;
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals("Aged Brie")) {
-                    if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (!item.name.equals(AGED_BRIE_ITEM)) {
+                    if (!item.name.equals(BACKSTAGE_ITEM)) {
                         if (item.quality > 0) {
-                            if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                            if (!item.name.equals(SULFURAS_ITEM)) {
                                 decreaseQuality(item);
                             }
                         }
