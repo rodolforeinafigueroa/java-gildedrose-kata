@@ -48,7 +48,11 @@ class GildedRose {
             }
 
             if (item.sellIn < 0) {
-                if (!item.name.equals(AGED_BRIE_ITEM)) {
+                if (item.name.equals(AGED_BRIE_ITEM)) {
+                    if (item.quality < 50) {
+                        increaseQuality(item);
+                    }
+                } else {
                     if (item.name.equals(BACKSTAGE_ITEM)) {
                         resetQuality(item);
                     } else {
@@ -58,10 +62,6 @@ class GildedRose {
                             }
                         }
                         
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        increaseQuality(item);
                     }
                 }
             }
