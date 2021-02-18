@@ -3,10 +3,12 @@ package tv.codely.kata.gildedrose;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Arrays;
 
 public class GildedRoseShould {
-    private Item[] arrayWith(Item item) {
-        return new Item[]{item};
+    private List<Item> arrayWith(Item item) {
+        return Arrays.asList(item);
     }
 
     @Test
