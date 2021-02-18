@@ -42,14 +42,10 @@ class GildedRose {
                 case SULFURAS_ITEM:
                     break;
                 default:
-                    if (item.quality > 0) {
-                        decreaseQuality(item);
-                    }
+                    decreaseQuality(item);
                     decreaseSellIn(item);
                     if (item.sellIn < 0) {
-                        if (item.quality > 0) {
-                            decreaseQuality(item);
-                        }
+                        decreaseQuality(item);
                     }
             }
 
@@ -57,7 +53,9 @@ class GildedRose {
     }
 
     private void decreaseQuality(Item item) {
-        item.quality -= 1;
+        if (item.quality > 0) {
+            item.quality -= 1;
+        }
     }
 
     private void increaseQuality(Item item) {
