@@ -26,9 +26,7 @@ class GildedRose {
                 increaseQuality(item);
                 if (item.name.equals(BACKSTAGE_ITEM)) {
                     if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            increaseQuality(item);
-                        }
+                        increaseQuality(item);
                     }
 
                     if (item.sellIn < 6) {
