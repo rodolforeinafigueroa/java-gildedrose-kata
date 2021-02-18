@@ -19,6 +19,7 @@ class GildedRose {
             switch (item.name) {
                 case AGED_BRIE_ITEM:
                     increaseQuality(item);
+                    item.sellIn = item.sellIn - 1;
                     break;
                 case BACKSTAGE_ITEM:
                     increaseQuality(item);
@@ -29,6 +30,7 @@ class GildedRose {
                     if (item.sellIn < 6) {
                         increaseQuality(item);
                     }
+                    item.sellIn = item.sellIn - 1;
                     break;
                 case SULFURAS_ITEM:
                     break;
@@ -36,10 +38,7 @@ class GildedRose {
                     if (item.quality > 0) {
                         decreaseQuality(item);
                     }
-            }
-
-            if (!item.name.equals(SULFURAS_ITEM)) {
-                item.sellIn = item.sellIn - 1;
+                    item.sellIn = item.sellIn - 1;
             }
 
             if (item.sellIn < 0) {
