@@ -19,11 +19,10 @@ class GildedRose {
             switch (item.name) {
                 case AGED_BRIE_ITEM:
                     increaseQuality(item);
-                    item.sellIn = item.sellIn - 1;
+                    decreaseSellIn(item);
                     if (item.sellIn < 0) {
                         increaseQuality(item);
                     }
-
                     break;
                 case BACKSTAGE_ITEM:
                     increaseQuality(item);
@@ -34,26 +33,22 @@ class GildedRose {
                     if (item.sellIn < 6) {
                         increaseQuality(item);
                     }
-                    item.sellIn = item.sellIn - 1;
+                    decreaseSellIn(item);
                     if (item.sellIn < 0) {
 
                         resetQuality(item);
                     }
                     break;
                 case SULFURAS_ITEM:
-                    if (item.sellIn < 0) {
-                    }
                     break;
                 default:
                     if (item.quality > 0) {
                         decreaseQuality(item);
                     }
-                    item.sellIn = item.sellIn - 1;
+                    decreaseSellIn(item);
                     if (item.sellIn < 0) {
                         if (item.quality > 0) {
-
                             decreaseQuality(item);
-
                         }
                     }
             }
@@ -73,5 +68,9 @@ class GildedRose {
 
     private void resetQuality(Item item) {
         item.quality = 0;
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn -= 1;
     }
 }
