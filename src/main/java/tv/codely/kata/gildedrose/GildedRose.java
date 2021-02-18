@@ -24,9 +24,7 @@ class GildedRose {
                     }
                 }
             } else {
-                if (item.quality < 50) {
                     increaseQuality(item);
-                }
                     if (item.name.equals(BACKSTAGE_ITEM)) {
                         if (item.sellIn < 11) {
                             if (item.quality < 50) {
@@ -35,9 +33,7 @@ class GildedRose {
                         }
 
                         if (item.sellIn < 6) {
-                            if (item.quality < 50) {
                                 increaseQuality(item);
-                            }
                         }
                     }
                 
@@ -49,9 +45,7 @@ class GildedRose {
 
             if (item.sellIn < 0) {
                 if (item.name.equals(AGED_BRIE_ITEM)) {
-                    if (item.quality < 50) {
                         increaseQuality(item);
-                    }
                 } else {
                     if (item.name.equals(BACKSTAGE_ITEM)) {
                         resetQuality(item);
@@ -73,7 +67,9 @@ class GildedRose {
     }
 
     private void increaseQuality(Item item){
-        item.quality += 1;
+        if (item.quality < 50) {
+            item.quality += 1;
+        }
     }
 
     private void resetQuality(Item item){
