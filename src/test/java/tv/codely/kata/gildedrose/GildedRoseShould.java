@@ -18,7 +18,7 @@ public class GildedRoseShould {
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
 
-        assertEquals(whateverItem.sellIn, 9);
+        assertEquals(whateverItem.sellIn(), 9);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class GildedRoseShould {
         gildedRose.updateQuality();
 
         assertEquals(sulfuras.quality, 25);
-        assertEquals(sulfuras.sellIn, 0);
+        assertEquals(sulfuras.sellIn(), 0);
     }
 
     @Test

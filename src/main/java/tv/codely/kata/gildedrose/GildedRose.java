@@ -20,21 +20,21 @@ class GildedRose {
                 case AGED_BRIE_ITEM:
                     item.increaseQuality();
                     item.decreaseSellIn();
-                    if (item.sellIn < 0) {
+                    if (item.sellIn() < 0) {
                         item.increaseQuality();
                     }
                     break;
                 case BACKSTAGE_ITEM:
                     item.increaseQuality();
-                    if (item.sellIn < 11) {
+                    if (item.sellIn() < 11) {
                         item.increaseQuality();
                     }
 
-                    if (item.sellIn < 6) {
+                    if (item.sellIn() < 6) {
                         item.increaseQuality();
                     }
                     item.decreaseSellIn();
-                    if (item.sellIn < 0) {
+                    if (item.sellIn() < 0) {
 
                         item.resetQuality();
                     }
@@ -44,7 +44,7 @@ class GildedRose {
                 default:
                     item.decreaseQuality();
                     item.decreaseSellIn();
-                    if (item.sellIn < 0) {
+                    if (item.sellIn() < 0) {
                         item.decreaseQuality();
                     }
             }

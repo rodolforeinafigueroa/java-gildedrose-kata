@@ -4,7 +4,7 @@ public class Item {
 
     public String name;
 
-    public int sellIn;
+    private int sellIn;
 
     public int quality;
 
@@ -12,6 +12,10 @@ public class Item {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public int sellIn(){
+        return this.sellIn;
     }
 
     @Override
