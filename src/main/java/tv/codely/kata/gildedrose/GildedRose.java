@@ -18,57 +18,39 @@ class GildedRose {
 
             switch (item.name) {
                 case AGED_BRIE_ITEM:
-                    increaseQuality(item);
-                    decreaseSellIn(item);
+                    item.increaseQuality();
+                    item.decreaseSellIn();
                     if (item.sellIn < 0) {
-                        increaseQuality(item);
+                        item.increaseQuality();
                     }
                     break;
                 case BACKSTAGE_ITEM:
-                    increaseQuality(item);
+                    item.increaseQuality();
                     if (item.sellIn < 11) {
-                        increaseQuality(item);
+                        item.increaseQuality();
                     }
 
                     if (item.sellIn < 6) {
-                        increaseQuality(item);
+                        item.increaseQuality();
                     }
-                    decreaseSellIn(item);
+                    item.decreaseSellIn();
                     if (item.sellIn < 0) {
 
-                        resetQuality(item);
+                        item.resetQuality();
                     }
                     break;
                 case SULFURAS_ITEM:
                     break;
                 default:
-                    decreaseQuality(item);
-                    decreaseSellIn(item);
+                    item.decreaseQuality();
+                    item.decreaseSellIn();
                     if (item.sellIn < 0) {
-                        decreaseQuality(item);
+                        item.decreaseQuality();
                     }
             }
 
         }
     }
 
-    private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality -= 1;
-        }
-    }
-
-    private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality += 1;
-        }
-    }
-
-    private void resetQuality(Item item) {
-        item.quality = 0;
-    }
-
-    private void decreaseSellIn(Item item) {
-        item.sellIn -= 1;
-    }
+    
 }
