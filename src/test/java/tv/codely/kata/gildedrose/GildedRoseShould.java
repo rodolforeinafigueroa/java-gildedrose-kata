@@ -13,7 +13,7 @@ public class GildedRoseShould {
 
     @Test
     public void testThatSellInValueIsDecreased() {
-        Item whateverItem = new Item("whatever", 10, 0);
+        Item whateverItem = ItemFactory.createBasedOn("whatever", 10, 0);
 
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
@@ -23,7 +23,7 @@ public class GildedRoseShould {
 
     @Test
     public void testThatQualityValueIsDecreased() {
-        Item whateverItem = new Item("whatever", 1, 10);
+        Item whateverItem = ItemFactory.createBasedOn("whatever", 1, 10);
 
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
@@ -33,7 +33,7 @@ public class GildedRoseShould {
 
     @Test
     public void testThatQualityDecreasesTwiceAsMuchWhenSellByIsPassed() {
-        Item whateverItem = new Item("whatever", 0, 10);
+        Item whateverItem = ItemFactory.createBasedOn("whatever", 0, 10);
 
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
@@ -43,7 +43,7 @@ public class GildedRoseShould {
 
     @Test
     public void testThatQualityIsNeverNegative() {
-        Item whateverItem = new Item("whatever", 0, 0);
+        Item whateverItem = ItemFactory.createBasedOn("whatever", 0, 0);
 
         GildedRose gildedRose = new GildedRose(arrayWith(whateverItem));
         gildedRose.updateQuality();
@@ -53,7 +53,7 @@ public class GildedRoseShould {
 
     @Test
     public void testAgedBrieIncreasesQualityWithAge() {
-        Item agedBrie = new Item("Aged Brie", 5, 1);
+        Item agedBrie = ItemFactory.createBasedOn("Aged Brie", 5, 1);
 
         GildedRose gildedRose = new GildedRose(arrayWith(agedBrie));
         gildedRose.updateQuality();
@@ -63,7 +63,7 @@ public class GildedRoseShould {
 
     @Test
     public void testQualityNeverIncreasesPastFifty() {
-        Item agedBrie = new Item("Aged Brie", 5, 50);
+        Item agedBrie = ItemFactory.createBasedOn("Aged Brie", 5, 50);
 
         GildedRose gildedRose = new GildedRose(arrayWith(agedBrie));
         gildedRose.updateQuality();
@@ -73,7 +73,7 @@ public class GildedRoseShould {
 
     @Test
     public void testSulfurasNeverChanges() {
-        Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 25);
+        Item sulfuras = ItemFactory.createBasedOn("Sulfuras, Hand of Ragnaros", 0, 25);
 
         GildedRose gildedRose = new GildedRose(arrayWith(sulfuras));
         gildedRose.updateQuality();
@@ -84,7 +84,7 @@ public class GildedRoseShould {
 
     @Test
     public void testBackstagePassIncreasesQualityByOneIfSellByGreaterThenTen() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20);
+        Item backstagePasses = ItemFactory.createBasedOn("Backstage passes to a TAFKAL80ETC concert", 11, 20);
 
         GildedRose gildedRose = new GildedRose(arrayWith(backstagePasses));
         gildedRose.updateQuality();
@@ -94,7 +94,7 @@ public class GildedRoseShould {
 
     @Test
     public void testBackstagePassIncreasesQualityByTwoIfSellBySmallerThanTen() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20);
+        Item backstagePasses = ItemFactory.createBasedOn("Backstage passes to a TAFKAL80ETC concert", 6, 20);
 
         GildedRose gildedRose = new GildedRose(arrayWith(backstagePasses));
         gildedRose.updateQuality();
@@ -104,7 +104,7 @@ public class GildedRoseShould {
 
     @Test
     public void testBackstagePassIncreasesQualityByThreeIfSellBySmallerThanFive() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20);
+        Item backstagePasses = ItemFactory.createBasedOn("Backstage passes to a TAFKAL80ETC concert", 5, 20);
 
         GildedRose gildedRose = new GildedRose(arrayWith(backstagePasses));
         gildedRose.updateQuality();
@@ -114,7 +114,7 @@ public class GildedRoseShould {
 
     @Test
     public void testBackstagePassLosesValueAfterSellByPasses() {
-        Item backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20);
+        Item backstagePasses = ItemFactory.createBasedOn("Backstage passes to a TAFKAL80ETC concert", 0, 20);
 
         GildedRose gildedRose = new GildedRose(arrayWith(backstagePasses));
         gildedRose.updateQuality();

@@ -1,6 +1,6 @@
 package tv.codely.kata.gildedrose;
 
-public class Item {
+public abstract class Item {
 
     public String name;
 
@@ -14,7 +14,7 @@ public class Item {
         this.quality = quality;
     }
 
-    public int sellIn(){
+    public int sellIn() {
         return this.sellIn;
     }
 
@@ -22,6 +22,8 @@ public class Item {
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
+    public abstract void update();
 
     public void decreaseQuality() {
         if (quality > 0) {
