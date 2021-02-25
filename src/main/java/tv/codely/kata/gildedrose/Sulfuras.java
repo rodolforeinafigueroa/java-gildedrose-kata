@@ -1,8 +1,8 @@
 package tv.codely.kata.gildedrose;
 
-public class Sulfuras extends Item {
+final class Sulfuras extends Item {
 
-    public Sulfuras(String name, int sellIn, int quality) {
+    public Sulfuras(final ItemName name, final int sellIn, final int quality) {
         super(name, sellIn, quality);
     }
 

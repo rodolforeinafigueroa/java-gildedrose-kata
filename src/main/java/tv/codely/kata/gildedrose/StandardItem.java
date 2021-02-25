@@ -1,8 +1,10 @@
 package tv.codely.kata.gildedrose;
 
-public class StandardItem extends Item {
+final class StandardItem extends Item {
 
-    public StandardItem(String name, int sellIn, int quality) {
+    private static final int DOUBLE_QUALITY_DECREASE_SELL_IN_THRESHOLD = 0;
+
+    public StandardItem(final ItemName name, final int sellIn, final int quality) {
         super(name, sellIn, quality);
     }
 
@@ -10,7 +12,7 @@ public class StandardItem extends Item {
     public void update() {
         decreaseQuality();
         decreaseSellIn();
-        if (sellIn() < 0) {
+        if (sellIn() < DOUBLE_QUALITY_DECREASE_SELL_IN_THRESHOLD) {
             decreaseQuality();
         }
     }

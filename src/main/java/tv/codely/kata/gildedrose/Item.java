@@ -1,14 +1,14 @@
 package tv.codely.kata.gildedrose;
 
-public abstract class Item {
+abstract class Item {
 
-    public String name;
+    private ItemName name;
 
     private int sellIn;
 
-    public int quality;
+    private int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    public Item(final ItemName name, final int sellIn, final int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -16,6 +16,10 @@ public abstract class Item {
 
     public int sellIn() {
         return this.sellIn;
+    }
+
+    public int quality(){
+        return quality;
     }
 
     @Override
